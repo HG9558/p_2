@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="git" master="{MASTER_COMMIT}" />
+  <link rel="icon" sizes="64x64" href="<%= htmlWebpackPlugin.options.ico %>" />
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <!-- <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/element-plus/1.0.2-beta.37/theme-chalk/base.min.css"> -->
+
+  <% for(var i=0;i < htmlWebpackPlugin.options.externals.js.length; i++){ %>
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.options.externals.js[i] %>"></script>
+    <% } %>
+
+      <% for(var i=0;i < htmlWebpackPlugin.options.externals.css.length; i++){ %>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.externals.css[i] %>">
+        <% } %>
+
+          <!-- 服务脚本插入地址 -->
+          <script>
+            var APP_CDN_URL = '/statics';
+            var APP_ASSETS_URL = '{ASSETS_URL}';
+          </script>
+          <!-- import JavaScript -->
+          <!-- 预加载css文件 -->
+          <% for(var i=0;i < htmlWebpackPlugin.files.css.length;i++){ %>
+            <link rel="preload" as="style" href="<%= htmlWebpackPlugin.files.css[i] %>" />
+            <% } %>
+              <!-- 预加载js文件 -->
+              <% for(var i=0;i < htmlWebpackPlugin.files.js.length;i++){ %>
+                <link rel="preload" as="script" href="<%= htmlWebpackPlugin.files.js[i] %>" />
+                <% } %>
+                  <!-- 引用css文件 -->
+                  <% for(var i=0;i < htmlWebpackPlugin.files.css.length;i++){ %>
+                    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[i] %>" />
+                    <% } %>
+</head>
+
+<body>
+  <div id="App"></div>
+  <textarea style="opacity: 0" id="clipboard-ym"></textarea>
+</body>
+<!-- 引用js文件 -->
+<% for(var i=0;i < htmlWebpackPlugin.files.js.length;i++){ %>
+  <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[i] %>"></script>
+  <% } %>
+    <!-- 
+<script>
+  !(function(c, b, d, a) {
+    c[a] || (c[a] = {});
+    c[a].config = {
+      pid: '1eirdo02r9h@be3795064362ab6',
+      appType: 'web',
+      imgUrl: 'https://arms-retcode-sg.aliyuncs.com/r.png?',
+      sendResource: true,
+      enableLinkTrace: true,
+      behavior: true
+    };
+    with (b) with (body) with (insertBefore(createElement('script'), firstChild)) setAttribute('crossorigin', '', src = d);
+  })(window, document, 'https://laz-g-cdn.alicdn.com/retcode/cloud-sdk/bl.js', '__bl');
+</script> -->
+
+
+</html>

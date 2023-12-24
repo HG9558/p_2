@@ -1,0 +1,19 @@
+.system-account-view {
+  padding: 20px;
+  @mixin role-tree {
+    min-height: 500px;
+    border: solid 1px $theme-bd-color;
+    overflow-y: auto;
+  }
+  .dialog-groupuser-tree-wp {
+    width: 100%;
+    height: 480px;
+    @include role-tree;
+  }
+  
+}
+
+
+.dialog-ctx-wp ::v-deep(.el-button--primary) {
+  background-color: #409EFF!important;
+}

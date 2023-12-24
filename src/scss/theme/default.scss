@@ -1,0 +1,18 @@
+@use "sass:map";
+
+$colors: (
+  white: #ffffff,
+  black: #000,
+  blue: #4080ff
+);
+
+/* 公共文字颜色 */
+$theme-txt-color: #333333;
+$theme-txt-color1: #1890ff;
+
+/* 公共背景颜色 */
+$theme-bg-color: #fff;
+
+
+/* 公共边框颜色 */
+$theme-bd-color: #f0f0f0;
